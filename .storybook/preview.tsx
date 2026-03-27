@@ -3,6 +3,7 @@ import { League_Spartan } from "next/font/google";
 
 import "../src/app/globals.css";
 import { THEME_COLORS } from "../src/constants";
+import ThemeSwitcher from "../src/components/ThemeSwitcher/ThemeSwitcher";
 
 const leagueSpartan = League_Spartan({
   variable: "--font-league-spartan",
@@ -11,15 +12,33 @@ const leagueSpartan = League_Spartan({
 
 const preview: Preview = {
   decorators: [
-    Story => {
+    (Story) => {
       // need to add the fonts to the root html element -> do it this way
       document.documentElement.classList.add(leagueSpartan.variable);
       // apply default theme-1 colors as CSS custom properties
       const themeColors = THEME_COLORS["theme-1"];
       Object.entries(themeColors).forEach(([key, value]) => {
-        document.documentElement.style.setProperty(key, value as string);
+        document.documentElement.style.setProperty(
+          key,
+          value as string,
+        );
       });
-      return <Story />;
+      return (
+        <>
+          <div
+            style={{
+              height: "4rem",
+              padding: "8px",
+              display: "flex",
+              justifyContent: "flex-end",
+              marginBottom: "40px",
+            }}
+          >
+            <ThemeSwitcher defaultTheme='theme-1' />
+          </div>
+          <Story />
+        </>
+      );
     },
   ],
   parameters: {

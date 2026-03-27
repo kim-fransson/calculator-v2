@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-200);
+  align-items: flex-end;
+}
+
+.groupLabel {
+  font-family: var(--text-preset-6-family);
+  font-weight: var(--text-preset-6-weight);
+  font-size: var(--text-preset-6-size);
+  line-height: var(--text-preset-6-line-height);
+  letter-spacing: var(--text-preset-6-letter-spacing);
+  color: var(--color-text);
+}
+
+.selectorContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+  width: 4.25rem;
+}
+
+.numberContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 3rem;
+  margin-inline: auto;
+}
+
+.number {
+  font-family: var(--text-preset-6-family);
+  font-weight: var(--text-preset-6-weight);
+  font-size: var(--text-preset-6-size);
+  line-height: var(--text-preset-6-line-height);
+  color: var(--color-text);
+  cursor: pointer;
+  width: 0.75rem;
+  text-align: center;
+}
+
+.toggleContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-type-2);
+  border-radius: 0.8125rem;
+  padding: var(--spacing-100);
+  height: 1.625rem;
+}
+
+.toggleOption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.visualInput {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--color-type-3);
+  visibility: hidden;
+}
+
+.visualInput[data-selected="true"] {
+  visibility: visible;
+}
+
+.nativeInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

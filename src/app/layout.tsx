@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { League_Spartan } from "next/font/google";
 import { THEME_COLORS, type Theme } from "@/constants";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 import "./globals.css";
 
@@ -31,7 +32,10 @@ export default async function RootLayout({
       data-color-theme={theme}
       style={themeColors}
     >
-      <body>{children}</body>
+      <body>
+        <ThemeSwitcher defaultTheme={theme} />
+        {children}
+      </body>
     </html>
   );
 }
