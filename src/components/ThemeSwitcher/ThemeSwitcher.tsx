@@ -3,17 +3,17 @@
 import { useState } from "react";
 import Cookie from "js-cookie";
 import { THEME_COLORS, type Theme } from "@/constants";
+
 import styles from "./ThemeSwitcher.module.css";
+import Nudge from "../Nudge";
+import TapArea from "../TapArea";
 
 interface ThemeSwitcherProps {
   defaultTheme: Theme;
 }
 
-const themes = ["theme-1", "theme-2", "theme-3"] as const;
-const labels = ["1", "2", "3"];
-
 function ThemeSwitcher({ defaultTheme }: ThemeSwitcherProps) {
-  const [theme, setTheme] = useState<Theme>(defaultTheme);
+  const [currentTheme, setTheme] = useState<Theme>(defaultTheme);
 
   function handleThemeChange(newTheme: Theme) {
     setTheme(newTheme);
@@ -36,44 +36,45 @@ function ThemeSwitcher({ defaultTheme }: ThemeSwitcherProps) {
       className={styles.container}
     >
       <span id='theme-switcher-label' className={styles.groupLabel}>
-        THEME
+        <Nudge y={-6}>THEME</Nudge>
       </span>
 
       <div className={styles.selectorContainer}>
         <div className={styles.numberContainer}>
-          {themes.map((t, i) => (
-            <label
-              key={t}
-              htmlFor={`theme-radio-${t}`}
-              className={styles.number}
-            >
-              {labels[i]}
-            </label>
+          {Object.keys(THEME_COLORS).map((theme, i) => (
+            <TapArea key={theme} minSize={16}>
+              <label
+                htmlFor={`theme-radio-${theme}`}
+                className={styles.number}
+              >
+                {i + 1}
+              </label>
+            </TapArea>
           ))}
         </div>
 
         <div className={styles.toggleContainer}>
-          {themes.map((t) => (
-            <label
-              key={t}
-              htmlFor={`theme-radio-${t}`}
-              className={styles.toggleOption}
-            >
-              <span
-                className={styles.visualInput}
-                aria-hidden='true'
-                data-selected={theme === t ? "true" : undefined}
-              />
-              <input
-                type='radio'
-                id={`theme-radio-${t}`}
-                name='color-theme'
-                value={t}
-                checked={theme === t}
-                onChange={() => handleThemeChange(t)}
-                className={styles.nativeInput}
-              />
-            </label>
+          {Object.keys(THEME_COLORS).map((theme) => (
+            <TapArea key={theme} minSize={20}>
+              <label
+                htmlFor={`theme-radio-${theme}`}
+                className={styles.toggleOption}
+              >
+                <input
+                  type='radio'
+                  id={`theme-radio-${theme}`}
+                  name='color-theme'
+                  value={theme}
+                  checked={currentTheme === theme}
+                  onChange={() => handleThemeChange(theme as Theme)}
+                  className={styles.nativeInput}
+                />
+                <span
+                  className={styles.visualInput}
+                  aria-hidden='true'
+                />
+              </label>
+            </TapArea>
           ))}
         </div>
       </div>

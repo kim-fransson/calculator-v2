@@ -67,8 +67,12 @@
   visibility: hidden;
 }
 
-.visualInput[data-selected="true"] {
+.nativeInput:checked + .visualInput {
   visibility: visible;
+}
+
+.nativeInput:focus-visible + .visualInput {
+  outline: auto;
 }
 
 .nativeInput {

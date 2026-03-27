@@ -1,0 +1,21 @@
+.tapArea {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tapArea::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: var(--tap-area-min-size, 2.75rem);
+  min-height: var(--tap-area-min-size, 2.75rem);
+}
+
+.tapAreaVisible::after {
+  background: oklch(60% 0.3 300 / 0.15);
+  outline: 1px dashed oklch(60% 0.3 300);
+}
