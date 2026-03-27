@@ -1,0 +1,7 @@
+.wrapper {
+  font-size: var(--text-preset-3-size);
+  font-family: var(--text-preset-3-family);
+  letter-spacing: var(--text-preset-3-letter-spacing);
+  line-height: var(--text-preset-3-line-height);
+  font-weight: var(--text-preset-3-weight);
+}
