@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import Cookie from "js-cookie";
+import { AnimatePresence, motion } from "motion/react";
 import { THEME_COLORS, type Theme } from "@/constants";
 
 import styles from "./ThemeSwitcher.module.css";
@@ -14,6 +15,7 @@ interface ThemeSwitcherProps {
 
 function ThemeSwitcher({ defaultTheme }: ThemeSwitcherProps) {
   const [currentTheme, setTheme] = useState<Theme>(defaultTheme);
+  const id = useId();
 
   function handleThemeChange(newTheme: Theme) {
     setTheme(newTheme);
@@ -69,10 +71,15 @@ function ThemeSwitcher({ defaultTheme }: ThemeSwitcherProps) {
                   onChange={() => handleThemeChange(theme as Theme)}
                   className={styles.nativeInput}
                 />
-                <span
-                  className={styles.visualInput}
-                  aria-hidden='true'
-                />
+                <AnimatePresence>
+                  {currentTheme === theme && (
+                    <motion.span
+                      className={styles.visualInput}
+                      aria-hidden='true'
+                      layoutId={id}
+                    />
+                  )}
+                </AnimatePresence>
               </label>
             </TapArea>
           ))}

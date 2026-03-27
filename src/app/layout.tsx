@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { League_Spartan } from "next/font/google";
 import { THEME_COLORS, type Theme } from "@/constants";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
+import RespectMotionPreferences from "@/components/RespectMotionPreferences";
 
 import "./globals.css";
 
@@ -26,16 +27,18 @@ export default async function RootLayout({
   const themeColors = THEME_COLORS[theme] ?? THEME_COLORS["theme-1"];
 
   return (
-    <html
-      lang='en'
-      className={leagueSpartan.variable}
-      data-color-theme={theme}
-      style={themeColors}
-    >
-      <body>
-        <ThemeSwitcher defaultTheme={theme} />
-        {children}
-      </body>
-    </html>
+    <RespectMotionPreferences>
+      <html
+        lang='en'
+        className={leagueSpartan.variable}
+        data-color-theme={theme}
+        style={themeColors}
+      >
+        <body>
+          <ThemeSwitcher defaultTheme={theme} />
+          {children}
+        </body>
+      </html>
+    </RespectMotionPreferences>
   );
 }
