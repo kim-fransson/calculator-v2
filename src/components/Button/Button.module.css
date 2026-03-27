@@ -1,0 +1,65 @@
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-100);
+  border: none;
+  border-radius: 0.625rem;
+  cursor: pointer;
+  height: 4rem;
+}
+
+.type-1 {
+  composes: button;
+  padding: var(--spacing-200);
+  background: var(--color-type-1);
+  box-shadow: inset 0 -4px 0 var(--color-type-1-shadow);
+  color: var(--color-type-1-text);
+  font-family: var(--text-preset-2-family);
+  font-weight: var(--text-preset-2-weight);
+  font-size: var(--text-preset-2-size);
+  line-height: var(--text-preset-2-line-height);
+  letter-spacing: var(--text-preset-2-letter-spacing);
+}
+
+.type-1:hover,
+.type-1:active {
+  background: var(--color-type-1-active);
+}
+
+.type-2 {
+  composes: button;
+  padding: var(--spacing-200) var(--spacing-300);
+  background: var(--color-type-2);
+  box-shadow: inset 0 -4px 0 var(--color-type-2-shadow);
+  color: var(--color-type-2-text);
+  font-family: var(--text-preset-4-family);
+  font-weight: var(--text-preset-4-weight);
+  font-size: var(--text-preset-4-size);
+  line-height: var(--text-preset-4-line-height);
+  letter-spacing: var(--text-preset-4-letter-spacing);
+}
+
+.type-2:hover,
+.type-2:active {
+  background: var(--color-type-2-active);
+}
+
+.type-3 {
+  composes: button;
+  padding: var(--spacing-200) var(--spacing-300);
+  background: var(--color-type-3);
+  box-shadow: inset 0 -4px 0 var(--color-type-3-shadow);
+  color: var(--color-type-3-text);
+  font-family: var(--text-preset-4-family);
+  font-weight: var(--text-preset-4-weight);
+  font-size: var(--text-preset-4-size);
+  line-height: var(--text-preset-4-line-height);
+  letter-spacing: var(--text-preset-4-letter-spacing);
+}
+
+.type-3:hover,
+.type-3:active {
+  background: var(--color-type-3-active);
+}

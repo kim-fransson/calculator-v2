@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { League_Spartan } from "next/font/google";
 import { cookies } from "next/headers";
+import { League_Spartan } from "next/font/google";
 import { THEME_COLORS, type Theme } from "@/constants";
+
 import "./globals.css";
 
-const leagueSpartanSans = League_Spartan({
+export const leagueSpartan = League_Spartan({
   variable: "--font-league-spartan",
   subsets: ["latin"],
 });
@@ -26,7 +27,7 @@ export default async function RootLayout({
   return (
     <html
       lang='en'
-      className={`${leagueSpartanSans.variable}`}
+      className={leagueSpartan.variable}
       data-color-theme={theme}
       style={themeColors}
     >
