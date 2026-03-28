@@ -1,0 +1,27 @@
+.display {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: var(--spacing-300);
+  gap: var(--spacing-100);
+  height: 5.5rem;
+  background: var(--color-type-2-background);
+  border-radius: 0.625rem;
+
+  @media (min-width: 48rem) {
+    padding: var(--spacing-400);
+    height: 8rem;
+    align-items: flex-end;
+  }
+}
+
+.value {
+  font-family: var(--text-preset-2-family);
+  font-weight: var(--text-preset-2-weight);
+  font-size: var(--text-preset-2-size);
+  line-height: var(--text-preset-2-line-height);
+  letter-spacing: var(--text-preset-2-letter-spacing);
+  text-align: right;
+  color: var(--color-text);
+}
