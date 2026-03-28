@@ -1,3 +1,5 @@
 .wrapper {
   max-width: 33.75rem;
+  width: 100%;
+  container-type: inline-size;
 }

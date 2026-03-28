@@ -1,7 +1,8 @@
 export const THEME_1_COLORS = {
   "--color-text": "var(--color-white)",
-  "--color-background": "var(--color-black)",
+  "--color-background": "var(--color-navy-850)",
   "--color-type-1": "var(--color-gray-200)",
+  "--color-type-1-background": "var(--color-navy-900)",
   "--color-type-1-active": "var(--color-white)",
   "--color-type-1-shadow": "hsl(27, 14%, 65%)",
   "--color-type-1-text": "var(--color-navy-750)",
@@ -17,8 +18,9 @@ export const THEME_1_COLORS = {
 
 export const THEME_2_COLORS = {
   "--color-text": "var(--color-gray-900)",
-  "--color-background": "var(--color-white)",
+  "--color-background": "var(--color-gray-200)",
   "--color-type-1": "var(--color-gray-200)",
+  "--color-type-1-background": "var(--color-gray-300)",
   "--color-type-1-active": "var(--color-white)",
   "--color-type-1-shadow": "hsl(27, 10%, 60%)",
   "--color-type-1-text": "var(--color-gray-900)",
@@ -34,8 +36,9 @@ export const THEME_2_COLORS = {
 
 export const THEME_3_COLORS = {
   "--color-text": "var(--color-yellow-300)",
-  "--color-background": "var(--color-black)",
+  "--color-background": "var(--color-purple-950)",
   "--color-type-1": "hsl(268, 44%, 21%)",
+  "--color-type-1-background": "var(--color-purple-900)",
   "--color-type-1-active": "var(--color-purple-700)",
   "--color-type-1-shadow": "hsl(290, 71%, 36%)",
   "--color-type-1-text": "var(--color-yellow-300)",
