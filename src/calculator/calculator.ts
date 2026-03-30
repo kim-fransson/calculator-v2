@@ -1,4 +1,8 @@
-import type { CalculatorState, CalculatorAction } from './types';
+import type { CalculatorState, CalculatorAction, Operator } from './types';
+
+export const OPERATOR_DISPLAY: Record<Operator, string> = {
+  '+': '+', '-': '−', '*': '×', '/': '÷',
+};
 
 export const INITIAL_STATE: CalculatorState = {
   display: '0',
@@ -6,6 +10,7 @@ export const INITIAL_STATE: CalculatorState = {
   operator: null,
   isNewEntry: false,
   lastOperand: null,
+  expression: '',
 };
 
 export function calculatorReducer(
@@ -37,19 +42,23 @@ export function calculatorReducer(
         const result = compute(state.storedValue, state.display, state.operator);
         return {
           ...state,
-          display: result,
+          display: '0',
           storedValue: result,
           operator: action.payload,
           isNewEntry: true,
           lastOperand: null,
+          expression: state.expression + OPERATOR_DISPLAY[state.operator] + ' ' + formatDisplay(state.display) + ' ',
         };
       }
+      // First operator, or changing mind (isNewEntry=true): seed expression with current display if empty
       return {
         ...state,
+        display: '0',
         storedValue: state.display,
         operator: action.payload,
         isNewEntry: true,
         lastOperand: null,
+        expression: state.expression || formatDisplay(state.display) + ' ',
       };
     }
 
@@ -65,6 +74,7 @@ export function calculatorReducer(
         storedValue: null,
         isNewEntry: true,
         lastOperand: rhs,
+        expression: '',
       };
     }
 

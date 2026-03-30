@@ -1,20 +1,17 @@
 .display {
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-end;
   padding: var(--spacing-300);
   gap: var(--spacing-100);
-  height: 5.5rem;
   background: var(--color-type-2-background);
   border-radius: 0.625rem;
   overflow: hidden;
 
   @media (min-width: 48rem) {
     padding: var(--spacing-400);
-    height: 8rem;
-    align-items: flex-end;
   }
 }
 
@@ -28,6 +25,17 @@
   background: linear-gradient(to right, var(--color-type-2-background), transparent);
   pointer-events: none;
   z-index: 1;
+}
+
+.history {
+  font-family: var(--text-preset-3-family);
+  font-weight: var(--text-preset-3-weight);
+  font-size: var(--text-preset-3-size);
+  line-height: var(--text-preset-3-line-height);
+  letter-spacing: var(--text-preset-3-letter-spacing);
+  text-align: right;
+  color: var(--color-type-3);
+  white-space: nowrap;
 }
 
 .value {

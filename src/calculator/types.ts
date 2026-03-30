@@ -11,6 +11,8 @@ export interface CalculatorState {
   isNewEntry: boolean;
   /** Right-hand operand from the last EQUALS press, enables repeated-equals (5+3==→11) */
   lastOperand: string | null;
+  /** Accumulated expression string shown in history row, e.g. "25 + 25 − " */
+  expression: string;
 }
 
 export type CalculatorAction =
