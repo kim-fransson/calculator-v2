@@ -57,11 +57,8 @@ function ThemeSwitcher({ defaultTheme }: ThemeSwitcherProps) {
 
         <div className={styles.toggleContainer}>
           {Object.keys(THEME_COLORS).map((theme) => (
-            <TapArea key={theme} minSize={20}>
-              <label
-                htmlFor={`theme-radio-${theme}`}
-                className={styles.toggleOption}
-              >
+            <div key={theme} className={styles.toggleOption}>
+              <TapArea minSize={20}>
                 <input
                   type='radio'
                   id={`theme-radio-${theme}`}
@@ -71,17 +68,17 @@ function ThemeSwitcher({ defaultTheme }: ThemeSwitcherProps) {
                   onChange={() => handleThemeChange(theme as Theme)}
                   className={styles.nativeInput}
                 />
-                <AnimatePresence>
-                  {currentTheme === theme && (
-                    <motion.span
-                      className={styles.visualInput}
-                      aria-hidden='true'
-                      layoutId={id}
-                    />
-                  )}
-                </AnimatePresence>
-              </label>
-            </TapArea>
+              </TapArea>
+              <AnimatePresence>
+                {currentTheme === theme && (
+                  <motion.span
+                    className={styles.visualInput}
+                    aria-hidden='true'
+                    layoutId={id}
+                  />
+                )}
+              </AnimatePresence>
+            </div>
           ))}
         </div>
       </div>
