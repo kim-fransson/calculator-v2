@@ -14,9 +14,16 @@ interface ThemeSwitcherProps {
   defaultTheme: Theme;
 }
 
+const THEME_LABELS: Record<string, string> = {
+  "theme-1": "Dark",
+  "theme-2": "Light",
+  "theme-3": "Violet",
+};
+
 function ThemeSwitcher({ defaultTheme }: ThemeSwitcherProps) {
   const [currentTheme, setTheme] = useState<Theme>(defaultTheme);
   const id = useId();
+  const labelId = `${id}-label`;
 
   function handleThemeChange(newTheme: Theme) {
     setTheme(newTheme);
@@ -40,12 +47,13 @@ function ThemeSwitcher({ defaultTheme }: ThemeSwitcherProps) {
 
       <div
         role='radiogroup'
-        aria-labelledby='theme-switcher-label'
+        aria-labelledby={labelId}
         className={styles.selectorContainer}
       >
         <VisuallyHidden>
-          <p id='theme-switcher-label'>
-            Switch between color themes 1, 2 or 3
+          <p id={labelId}>
+            Switch between color themes 1 (Dark), 2 (Light) or 3
+            (Violet)
           </p>
         </VisuallyHidden>
         <div className={styles.numberContainer}>
@@ -53,6 +61,7 @@ function ThemeSwitcher({ defaultTheme }: ThemeSwitcherProps) {
             <TapArea key={theme} minSize={16}>
               <label
                 htmlFor={`theme-radio-${theme}`}
+                aria-label={`Theme ${i + 1} – ${THEME_LABELS[theme]}`}
                 className={styles.number}
               >
                 {i + 1}

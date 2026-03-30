@@ -11,13 +11,13 @@ export default async function Home() {
   const theme = (savedTheme?.value ?? "theme-1") as Theme;
 
   return (
-    <div className={styles.page}>
+    <main className={styles.page}>
       <MaxWidthWrapper>
         <div className={styles.content}>
           <Header defaultTheme={theme} />
           <Calculator />
         </div>
       </MaxWidthWrapper>
-    </div>
+    </main>
   );
 }
