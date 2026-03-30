@@ -72,6 +72,7 @@ export function calculatorReducer(
         ...state,
         display: result,
         storedValue: null,
+        operator: null,
         isNewEntry: true,
         lastOperand: rhs,
         expression: '',
