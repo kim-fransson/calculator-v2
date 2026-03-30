@@ -9,9 +9,9 @@ interface DisplayProps {
 
 function Display({ value, history }: DisplayProps) {
   return (
-    <output className={styles.display} aria-label="Calculator result">
-      {history && <span className={styles.history} aria-label="Previous expression">{history}</span>}
-      <span className={styles.value} aria-label="Current value">{value}</span>
+    <output className={styles.display} aria-label={`${history ? history + ' ' : ''}${value}`}>
+      {history && <span className={styles.history} aria-hidden="true">{history}</span>}
+      <span className={styles.value} aria-hidden="true">{value}</span>
     </output>
   );
 }

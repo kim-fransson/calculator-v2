@@ -31,6 +31,7 @@ export function useKeyPress(dispatch: Dispatch<CalculatorAction>): void {
         e.preventDefault(); // prevent browser quick-find
         dispatch({ type: "OPERATOR", payload: "/" });
       } else if (key === "Enter" || key === "=") {
+        if (e.target instanceof HTMLButtonElement) return;
         dispatch({ type: "EQUALS" });
       } else if (key === "Backspace" || key === "Delete") {
         // Throttle repeating delete
