@@ -22,6 +22,7 @@ export function useKeypress(
   const { repeat = "block-all" } = options;
 
   const handlerRef = useRef<KeypressHandler>(handler);
+  // eslint-disable-next-line react-hooks/refs
   handlerRef.current = handler;
 
   useEffect(() => {
