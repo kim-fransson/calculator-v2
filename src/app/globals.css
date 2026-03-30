@@ -119,6 +119,10 @@ body {
   font-family: var(--font-league-spartan), sans-serif;
   background: var(--color-background);
   color: var(--color-text);
+
+  transition:
+    background 350ms cubic-bezier(0.41, 0.1, 0.13, 1),
+    color 350ms cubic-bezier(0.41, 0.1, 0.13, 1);
 }
 
 img,
