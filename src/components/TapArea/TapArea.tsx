@@ -1,5 +1,20 @@
 import React from "react";
+import { clampedNormalize } from "../../utils/math";
 import styles from "./TapArea.module.css";
+
+const WCAG_TARGET = 48;
+const RED_FLOOR = 10;
+
+function getTapAreaColor(size: number): React.CSSProperties {
+  const hue =
+    size >= WCAG_TARGET
+      ? 120
+      : clampedNormalize(size, RED_FLOOR, WCAG_TARGET, 0, 30);
+  return {
+    "--tap-area-debug-bg": `oklch(65% 0.25 ${hue}deg / 0.15)`,
+    "--tap-area-debug-outline": `oklch(65% 0.25 ${hue}deg)`,
+  } as React.CSSProperties;
+}
 
 interface TapAreaProps {
   children: React.ReactElement<{ className?: string; style?: React.CSSProperties }>;
@@ -36,9 +51,10 @@ function TapArea({ children, minSize }: TapAreaProps) {
     .filter(Boolean)
     .join(" ");
 
-  const tapAreaStyle = minSize !== undefined
-    ? { "--tap-area-min-size": `${minSize / 16}rem` } as React.CSSProperties
-    : undefined;
+  const tapAreaStyle: React.CSSProperties = {
+    ...(minSize !== undefined && { "--tap-area-min-size": `${minSize / 16}rem` } as React.CSSProperties),
+    ...getTapAreaColor(minSize ?? 44),
+  };
 
   return React.cloneElement(children, {
     className: [children.props.className, tapAreaClass]

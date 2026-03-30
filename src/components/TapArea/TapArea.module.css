@@ -16,6 +16,6 @@
 }
 
 .tapAreaVisible::after {
-  background: oklch(60% 0.3 300 / 0.15);
-  outline: 1px dashed oklch(60% 0.3 300);
+  background: var(--tap-area-debug-bg);
+  outline: 1px dashed var(--tap-area-debug-outline);
 }

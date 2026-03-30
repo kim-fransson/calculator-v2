@@ -24,4 +24,11 @@
   letter-spacing: var(--text-preset-2-letter-spacing);
   text-align: right;
   color: var(--color-text);
+
+  @media (min-width: 48rem) {
+    font-size: var(--text-preset-1-size);
+    font-weight: var(--text-preset-1-weight);
+    line-height: var(--text-preset-1-line-height);
+    letter-spacing: var(--text-preset-1-letter-spacing);
+  }
 }
