@@ -93,7 +93,7 @@
 }
 
 .type-1 .edge {
-  background: var(--color-type-1-shadow);
+  background: var(--color-type-1-edge);
 }
 
 .type-2 .front {
@@ -114,7 +114,7 @@
 }
 
 .type-2 .edge {
-  background: var(--color-type-2-shadow);
+  background: var(--color-type-2-edge);
 }
 
 .type-3 .front {
@@ -135,5 +135,5 @@
 }
 
 .type-3 .edge {
-  background: var(--color-type-3-shadow);
+  background: var(--color-type-3-edge);
 }
