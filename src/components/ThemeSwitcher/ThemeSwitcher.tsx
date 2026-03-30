@@ -50,11 +50,9 @@ function ThemeSwitcher({ defaultTheme }: ThemeSwitcherProps) {
         aria-labelledby={labelId}
         className={styles.selectorContainer}
       >
-        <VisuallyHidden>
-          <p id={labelId}>
-            Switch between color themes 1 (Dark), 2 (Light) or 3
-            (Violet)
-          </p>
+        <VisuallyHidden id={labelId}>
+          Switch between color themes 1 (Dark), 2 (Light) or 3
+          (Violet)
         </VisuallyHidden>
         <div className={styles.numberContainer}>
           {Object.keys(THEME_COLORS).map((theme, i) => (
