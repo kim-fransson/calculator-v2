@@ -8,6 +8,7 @@ import { THEME_COLORS, type Theme } from "@/constants";
 import styles from "./ThemeSwitcher.module.css";
 import Nudge from "../Nudge";
 import TapArea from "../TapArea";
+import VisuallyHidden from "../VisuallyHidden";
 
 interface ThemeSwitcherProps {
   defaultTheme: Theme;
@@ -32,16 +33,21 @@ function ThemeSwitcher({ defaultTheme }: ThemeSwitcherProps) {
   }
 
   return (
-    <div
-      role='group'
-      aria-labelledby='theme-switcher-label'
-      className={styles.container}
-    >
-      <span id='theme-switcher-label' className={styles.groupLabel}>
+    <div className={styles.container}>
+      <span className={styles.groupLabel}>
         <Nudge y={-6}>THEME</Nudge>
       </span>
 
-      <div className={styles.selectorContainer}>
+      <div
+        role='radiogroup'
+        aria-labelledby='theme-switcher-label'
+        className={styles.selectorContainer}
+      >
+        <VisuallyHidden>
+          <p id='theme-switcher-label'>
+            Switch between color themes 1, 2 or 3
+          </p>
+        </VisuallyHidden>
         <div className={styles.numberContainer}>
           {Object.keys(THEME_COLORS).map((theme, i) => (
             <TapArea key={theme} minSize={16}>
