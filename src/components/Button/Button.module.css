@@ -12,15 +12,22 @@
 
 .type-1 {
   composes: button;
-  padding: var(--spacing-200);
+
   background: var(--color-type-1);
   box-shadow: inset 0 -4px 0 var(--color-type-1-shadow);
   color: var(--color-type-1-text);
-  font-family: var(--text-preset-2-family);
-  font-weight: var(--text-preset-2-weight);
-  font-size: var(--text-preset-2-size);
-  line-height: var(--text-preset-2-line-height);
-  letter-spacing: var(--text-preset-2-letter-spacing);
+  font-family: var(--text-preset-3-family);
+  font-weight: var(--text-preset-3-weight);
+  font-size: var(--text-preset-3-size);
+  line-height: var(--text-preset-3-line-height);
+  letter-spacing: var(--text-preset-3-letter-spacing);
+
+  @media (min-width: 48rem) {
+    font-weight: var(--text-preset-2-weight);
+    font-size: var(--text-preset-2-size);
+    line-height: var(--text-preset-2-line-height);
+    letter-spacing: var(--text-preset-2-letter-spacing);
+  }
 }
 
 .type-1:hover,
@@ -30,15 +37,21 @@
 
 .type-2 {
   composes: button;
-  padding: var(--spacing-200) var(--spacing-300);
   background: var(--color-type-2);
   box-shadow: inset 0 -4px 0 var(--color-type-2-shadow);
   color: var(--color-type-2-text);
-  font-family: var(--text-preset-4-family);
-  font-weight: var(--text-preset-4-weight);
-  font-size: var(--text-preset-4-size);
-  line-height: var(--text-preset-4-line-height);
-  letter-spacing: var(--text-preset-4-letter-spacing);
+  font-family: var(--text-preset-5-family);
+  font-weight: var(--text-preset-5-weight);
+  font-size: var(--text-preset-5-size);
+  line-height: var(--text-preset-5-line-height);
+  letter-spacing: var(--text-preset-5-letter-spacing);
+
+  @media (min-width: 48rem) {
+    font-weight: var(--text-preset-4-weight);
+    font-size: var(--text-preset-4-size);
+    line-height: var(--text-preset-4-line-height);
+    letter-spacing: var(--text-preset-4-letter-spacing);
+  }
 }
 
 .type-2:hover,
@@ -48,15 +61,21 @@
 
 .type-3 {
   composes: button;
-  padding: var(--spacing-200) var(--spacing-300);
   background: var(--color-type-3);
   box-shadow: inset 0 -4px 0 var(--color-type-3-shadow);
   color: var(--color-type-3-text);
-  font-family: var(--text-preset-4-family);
-  font-weight: var(--text-preset-4-weight);
-  font-size: var(--text-preset-4-size);
-  line-height: var(--text-preset-4-line-height);
-  letter-spacing: var(--text-preset-4-letter-spacing);
+  font-family: var(--text-preset-5-family);
+  font-weight: var(--text-preset-5-weight);
+  font-size: var(--text-preset-5-size);
+  line-height: var(--text-preset-5-line-height);
+  letter-spacing: var(--text-preset-5-letter-spacing);
+
+  @media (min-width: 48rem) {
+    font-weight: var(--text-preset-4-weight);
+    font-size: var(--text-preset-4-size);
+    line-height: var(--text-preset-4-line-height);
+    letter-spacing: var(--text-preset-4-letter-spacing);
+  }
 }
 
 .type-3:hover,
