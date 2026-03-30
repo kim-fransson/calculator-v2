@@ -1,4 +1,5 @@
 .display {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -8,12 +9,25 @@
   height: 5.5rem;
   background: var(--color-type-2-background);
   border-radius: 0.625rem;
+  overflow: hidden;
 
   @media (min-width: 48rem) {
     padding: var(--spacing-400);
     height: 8rem;
     align-items: flex-end;
   }
+}
+
+.display::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  background: linear-gradient(to right, var(--color-type-2-background), transparent);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .value {
@@ -24,6 +38,7 @@
   letter-spacing: var(--text-preset-2-letter-spacing);
   text-align: right;
   color: var(--color-text);
+  white-space: nowrap;
 
   @media (min-width: 48rem) {
     font-size: var(--text-preset-1-size);
