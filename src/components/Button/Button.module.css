@@ -1,20 +1,82 @@
 .button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacing-100);
+  padding: 0;
   border: none;
   border-radius: 0.625rem;
   cursor: pointer;
-  height: 4rem;
+  height: 3.75rem;
+  outline-offset: 4px;
+  position: relative;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: filter 250ms;
 }
 
-.type-1 {
-  composes: button;
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: hsl(0deg 0% 0% / 0.25);
+  filter: blur(4px);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
 
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.front {
+  will-change: transform;
+  display: block;
+  position: relative;
+  height: 100%;
+  border-radius: inherit;
+  display: grid;
+  place-items: center;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.button:hover {
+  filter: brightness(110%);
+}
+
+.button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.button:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.button:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.button:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.button:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.type-1 .front {
   background: var(--color-type-1);
-  box-shadow: inset 0 -4px 0 var(--color-type-1-shadow);
   color: var(--color-type-1-text);
   font-family: var(--text-preset-3-family);
   font-weight: var(--text-preset-3-weight);
@@ -30,15 +92,12 @@
   }
 }
 
-.type-1:hover,
-.type-1:active {
-  background: var(--color-type-1-active);
+.type-1 .edge {
+  background: var(--color-type-1-shadow);
 }
 
-.type-2 {
-  composes: button;
+.type-2 .front {
   background: var(--color-type-2);
-  box-shadow: inset 0 -4px 0 var(--color-type-2-shadow);
   color: var(--color-type-2-text);
   font-family: var(--text-preset-5-family);
   font-weight: var(--text-preset-5-weight);
@@ -54,15 +113,12 @@
   }
 }
 
-.type-2:hover,
-.type-2:active {
-  background: var(--color-type-2-active);
+.type-2 .edge {
+  background: var(--color-type-2-shadow);
 }
 
-.type-3 {
-  composes: button;
+.type-3 .front {
   background: var(--color-type-3);
-  box-shadow: inset 0 -4px 0 var(--color-type-3-shadow);
   color: var(--color-type-3-text);
   font-family: var(--text-preset-5-family);
   font-weight: var(--text-preset-5-weight);
@@ -78,7 +134,6 @@
   }
 }
 
-.type-3:hover,
-.type-3:active {
-  background: var(--color-type-3-active);
+.type-3 .edge {
+  background: var(--color-type-3-shadow);
 }
